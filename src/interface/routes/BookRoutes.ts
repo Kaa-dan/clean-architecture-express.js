@@ -9,7 +9,7 @@ const router = Router();
 
 const bookRepository = new InMemoryBookRepository();
 const getAllBooks = new GetAllBooks(bookRepository);
-const bookController = new BookController(getAllBooks);
+const bookController = new BookController();
 
 router.get("/books", (req, res) => bookController.getAll(req, res));
 

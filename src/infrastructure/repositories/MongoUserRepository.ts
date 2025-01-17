@@ -1,5 +1,5 @@
 
-import { UserModel } from "../mongodb/models/UserModel";
+import { UserModel } from "../models/UserModel";
 import { User } from "../../domain/entities/User";
 import { UserRepository } from "../../domain/interfaces/respositories/UserRepository";
 

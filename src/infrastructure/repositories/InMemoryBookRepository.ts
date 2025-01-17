@@ -1,4 +1,4 @@
-import { Book } from "../../domain/enitities/Book";
+import { Book } from "../../domain/entities/Book";
 import { BookRepository } from "../../domain/interfaces/BookRepository";
 
 export class InMemoryBookRepository implements BookRepository {

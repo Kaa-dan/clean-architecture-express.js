@@ -1,8 +1,8 @@
-import { InMemoryBookRepository } from "./repositories/InMemoryBookRepository";
+import { MongoBookRepository } from "./repositories/MongoBookRepository";
 import { GetAllBooks } from "../use-cases/GetAllBooks";
 
 class DIContainer {
-  private static _bookRepository = new InMemoryBookRepository();
+  private static _bookRepository = new MongoBookRepository();
 
   static getBookRepository() {
     return this._bookRepository;

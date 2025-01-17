@@ -1,4 +1,4 @@
-import { ProductModel } from "../mongodb/models/ProductMode";
+import { ProductModel } from "../models/ProductMode";
 import { Product } from "../../domain/entities/Product";
 import { ProductRepository } from "../../domain/interfaces/respositories/ProductRepository";
 

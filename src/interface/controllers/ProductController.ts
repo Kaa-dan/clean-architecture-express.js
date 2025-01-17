@@ -4,7 +4,7 @@ import { ProductRepository } from '../../domain/interfaces/respositories/Product
 export class ProductController {
   constructor(private productRepository: ProductRepository) {}
 
-  async getAllProducts = async (req: Request, res: Response): Promise<void> => {
+   getAllProducts = async (req: Request, res: Response): Promise<void> => {
     try {
       const products = await this.productRepository.findAll();
       res.json(products);
@@ -13,7 +13,7 @@ export class ProductController {
     }
   };
 
-  async createProduct = async (req: Request, res: Response): Promise<void> => {
+   createProduct = async (req: Request, res: Response): Promise<void> => {
     try {
       const product = await this.productRepository.create(req.body);
       res.status(201).json(product);
@@ -22,7 +22,7 @@ export class ProductController {
     }
   };
 
-  async updateProduct = async (req: Request, res: Response): Promise<void> => {
+   updateProduct = async (req: Request, res: Response): Promise<void> => {
     try {
       const product = await this.productRepository.update(req.params.id, req.body);
       if (!product) {
@@ -35,7 +35,7 @@ export class ProductController {
     }
   };
 
-  async deleteProduct = async (req: Request, res: Response): Promise<void> => {
+   deleteProduct = async (req: Request, res: Response): Promise<void> => {
     try {
       const success = await this.productRepository.delete(req.params.id);
       if (!success) {

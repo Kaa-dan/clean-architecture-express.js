@@ -13,6 +13,7 @@ interface AuthenticatedRequest extends Request {
 const router = Router();
 
 const productRepository = new MongoProductRepository();
+
 const productController = new ProductController(productRepository);
 
 /**

@@ -21,7 +21,7 @@ const PORT = 3000;
 app.use("/api/auth", authRoutes);
 
 // Category routes (protected)
-app.use("/api/category", categoryRoutes);
+app.use("/api/categories", categoryRoutes);
 
 // Product routes (protected)
 app.use("/api/products", productRoutes);

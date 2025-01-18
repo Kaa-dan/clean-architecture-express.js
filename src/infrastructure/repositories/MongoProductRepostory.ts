@@ -1,4 +1,4 @@
-import { ProductModel } from "../models/ProductMode";
+import { ProductModel } from "../models/ProductModel";
 import { Product } from "../../domain/entities/Product";
 import { ProductRepository } from "../../domain/interfaces/respositories/ProductRepository";
 
@@ -8,7 +8,7 @@ export class MongoProductRepository implements ProductRepository {
       name: product.name,
       description: product.description,
       price: product.price,
-      createdBy: product.createdBy
+      // createdBy: product.createdBy
     });
 
     return this.mapToProduct(newProduct);

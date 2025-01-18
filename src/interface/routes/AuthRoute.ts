@@ -48,7 +48,8 @@ const authController = new AuthController(registerUseCase, loginUseCase);
  *       500:
  *         description: Server error
  */
-router.post('/register', async (req: Request, res: Response) => {
+
+router.post("/register", async (req: Request, res: Response) => {
   await authController.register(req, res);
 });
 
@@ -89,7 +90,7 @@ router.post('/register', async (req: Request, res: Response) => {
  *       500:
  *         description: Server error
  */
-router.post('/login', async (req: Request, res: Response) => {
+router.post("/login", async (req: Request, res: Response) => {
   await authController.login(req, res);
 });
 

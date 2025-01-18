@@ -8,9 +8,16 @@ const options = {
     info: {
       title: "Clean Architecture API",
       version: "1.0.0",
+      description: "API documentation for Clean Architecture Express.js application"
     },
+    servers: [
+      {
+        url: "http://localhost:3000",
+        description: "Development server"
+      }
+    ]
   },
-  apis: ["./src/interface/routes/*.ts"],
+  apis: ["./src/interface/routes/*.ts", "./src/interface/routes/**/*.ts"]
 };
 
 const swaggerSpec = swaggerJSDoc(options);

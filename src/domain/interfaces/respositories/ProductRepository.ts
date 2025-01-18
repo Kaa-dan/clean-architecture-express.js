@@ -1,5 +1,5 @@
 import { Product } from "../../entities/Product";
-
+//changes in git hub
 export interface ProductRepository {
   create(product: Product): Promise<Product>;
   update(id: string, product: Product): Promise<Product | null>;

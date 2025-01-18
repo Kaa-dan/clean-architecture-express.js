@@ -8,19 +8,14 @@ export class RegisterUser {
     private authService: AuthService
   ) {}
 
-  async execute(email: string, password: string, name: string): Promise<User> {
+  async execute(email: string, password: string): Promise<User> {
     const existingUser = await this.userRepository.findByEmail(email);
     if (existingUser) {
-      throw new Error('User already exists');
+      throw new Error("User already exists");
     }
 
     const hashedPassword = await this.authService.hashPassword(password);
-    const user = new User(
-      Date.now().toString(), // Simple ID generation
-      email,
-      hashedPassword,
-      name
-    );
+    const user = new User(email, hashedPassword);
 
     return await this.userRepository.create(user);
   }

@@ -1,6 +1,7 @@
-import { Request, Response } from 'express';
-import { RegisterUser } from '../../use-cases/auth/RegisterUser';
-import { LoginUser } from '../../use-cases/auth/LoginUser';
+import { Request, Response } from "express";
+import { RegisterUser } from "../../use-cases/auth/RegisterUser";
+import { LoginUser } from "../../use-cases/auth/LoginUser";
+import { Types } from "mongoose";
 
 export class AuthController {
   constructor(
@@ -10,9 +11,9 @@ export class AuthController {
 
   async register(req: Request, res: Response) {
     try {
-      const { email, password, name } = req.body;
-      const user = await this.registerUseCase.execute(email, password, name);
-      res.status(201).json({ id: user.id, email: user.email, name: user.name });
+      const { email, password } = req.body;
+      const user = await this.registerUseCase.execute(email, password);
+      res.status(201).json({ id: user._id , email: user.email });
     } catch (error: any) {
       res.status(400).json({ message: error.message });
     }

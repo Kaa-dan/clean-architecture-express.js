@@ -59,7 +59,7 @@ router.get(
  *       content:
  *         application/json:
  *           schema:
- *             $ref: '#/components/schemas/Categories'
+ *             $ref: '#/components/schemas/Category'
  *     responses:
  *       201:
  *         description: Product created successfully

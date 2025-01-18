@@ -7,17 +7,17 @@ export class MongoCategoryRepository implements CategoryRepository {
   async create(category: Category): Promise<Category> {
     const newCategory = await ProductModel.create({
       name: category.name,
-      image: category.image,
+      image: category.image ?? "null",
     });
     return this.mapToCategory(newCategory);
   }
 
   async findAll(): Promise<Category[]> {
-      const categories = await CategoryModel.find();
-      return categories.map(category=>this.mapToCategory(categories))
+    const categories = await CategoryModel.find();
+    return categories.map((category) => this.mapToCategory(categories));
   }
 
   private mapToCategory(doc: any): Category {
-    return new Category(doc._id.toString(),doc.name,doc.image);
+    return new Category(doc._id.toString(), doc.name, doc.image);
   }
 }

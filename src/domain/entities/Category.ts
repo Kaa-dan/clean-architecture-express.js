@@ -1,3 +1,8 @@
 export class Category {
-  constructor(public readonly id: string, public name: string,public image:string) {}
+  _id?:string
+  constructor(
+    
+    public name: string,
+    public image: string
+  ) {}
 }

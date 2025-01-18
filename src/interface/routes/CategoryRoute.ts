@@ -29,8 +29,6 @@ const categoryController = new CategoryController(categoryRepository);
  *         - name
  *         - image
  *       properties:
- *         id:
- *           type: string
  *         name:
  *           type: string
  *         image:

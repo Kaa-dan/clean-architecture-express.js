@@ -18,6 +18,7 @@ export class CategoryController {
       const category = await this.categoryRepository.create(req.body);
       res.status(201).json(category);
     } catch (error) {
+      console.log({error})
       res.status(500).json({ message: "Error creating category" });
     }
   };

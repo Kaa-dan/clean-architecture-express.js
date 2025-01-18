@@ -13,7 +13,9 @@ export class AuthController {
     try {
       const { email, password } = req.body;
       const user = await this.registerUseCase.execute(email, password);
+      console.log({user})
       res.status(201).json({ id: user._id , email: user.email });
+
     } catch (error: any) {
       res.status(400).json({ message: error.message });
     }

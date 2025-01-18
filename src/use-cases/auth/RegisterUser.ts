@@ -16,7 +16,7 @@ export class RegisterUser {
 
     const hashedPassword = await this.authService.hashPassword(password);
     const user = new User(email, hashedPassword);
-
+    console.log({userFromuseCase:user})
     return await this.userRepository.create(user);
   }
 }

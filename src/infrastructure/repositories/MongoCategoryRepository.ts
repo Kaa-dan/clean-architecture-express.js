@@ -5,10 +5,12 @@ import { ProductModel } from "../models/ProductModel";
 
 export class MongoCategoryRepository implements CategoryRepository {
   async create(category: Category): Promise<Category> {
-    const newCategory = await ProductModel.create({
+    const newCategory = await CategoryModel.create({
       name: category.name,
       image: category.image ?? "null",
     });
+
+    console.log({newCategory})
     return this.mapToCategory(newCategory);
   }
 
@@ -18,6 +20,6 @@ export class MongoCategoryRepository implements CategoryRepository {
   }
 
   private mapToCategory(doc: any): Category {
-    return new Category(doc._id.toString(), doc.name, doc.image);
+    return new Category( doc.name, doc.image);
   }
 }

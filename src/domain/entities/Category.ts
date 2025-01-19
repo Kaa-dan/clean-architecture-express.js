@@ -1,8 +1,6 @@
 export class Category {
-  _id?:string
-  constructor(
-    
-    public name: string,
-    public image: string
-  ) {}
+  _id?: string;
+  constructor(public name: string, public image: string) {}
 }
+
+console.log("nithin")

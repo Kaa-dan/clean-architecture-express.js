@@ -1,7 +1,7 @@
+import { Types } from "mongoose";
 import { Category } from "../../domain/entities/Category";
 import { CategoryRepository } from "../../domain/interfaces/respositories/CategoryRepository";
 import { CategoryModel } from "../models/CatogoryModel";
-import { ProductModel } from "../models/ProductModel";
 
 export class MongoCategoryRepository implements CategoryRepository {
   async create(category: Category): Promise<Category> {
@@ -10,8 +10,30 @@ export class MongoCategoryRepository implements CategoryRepository {
       image: category.image ?? "null",
     });
 
-    console.log({newCategory})
+    console.log({ newCategory });
     return this.mapToCategory(newCategory);
+  }
+  async update(id: string, category: Category): Promise<Category | null> {
+    const updateCategory = await CategoryModel.findOneAndUpdate(
+      new Types.ObjectId(id),
+      {
+        name: category.name,
+        image: category.image,
+      }
+    );
+    if (!updateCategory) return null;
+    return this.mapToCategory(updateCategory);
+  }
+
+  async delete(id: string): Promise<boolean> {
+    const result = await CategoryModel.findByIdAndDelete(id);
+    return !!result;
+  }
+
+  async findById(id: string): Promise<Category | null> {
+    const category = await CategoryModel.findById(id);
+    if (!category) return null;
+    return this.mapToCategory(category);
   }
 
   async findAll(): Promise<Category[]> {
@@ -20,6 +42,6 @@ export class MongoCategoryRepository implements CategoryRepository {
   }
 
   private mapToCategory(doc: any): Category {
-    return new Category( doc.name, doc.image);
+    return new Category(doc.name, doc.image);
   }
 }

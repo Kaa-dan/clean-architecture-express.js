@@ -8,7 +8,6 @@ export class MongoProductRepository implements ProductRepository {
       name: product.name,
       description: product.description,
       price: product.price,
-      // createdBy: product.createdBy
     });
 
     return this.mapToProduct(newProduct);
@@ -42,11 +41,6 @@ export class MongoProductRepository implements ProductRepository {
 
   async findAll(): Promise<Product[]> {
     const products = await ProductModel.find();
-    return products.map(product => this.mapToProduct(product));
-  }
-
-  async findByUser(userId: string): Promise<Product[]> {
-    const products = await ProductModel.find({ createdBy: userId });
     return products.map(product => this.mapToProduct(product));
   }
 
